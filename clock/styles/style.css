@@ -1,0 +1,17 @@
+#clockId {
+    width: auto;
+    height: 350px;
+    background: #521779;
+    padding: 5px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+}
+
+#clock_timingId {
+    width: 100%;
+    color: #e8f1f1;
+    font-size: 120pt;
+    font-weight: bold;
+    text-align: center;
+}
