@@ -1,0 +1,35 @@
+# https://kubernetes.io/docs/concepts/cluster-administration/manage-deployment/
+# first the service then the application
+apiVersion: v1
+kind: Service
+metadata:
+  name: clock-service
+  labels:
+    app: clock
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: clock
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clock-application
+spec:
+  selector:
+    matchLabels:
+      app: clock
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: clock
+    spec:
+      containers:
+        - name: clock
+          image: merveba/clock:v1
+          imagePullPolicy: "Always"
+          ports:
+            - containerPort: 80
