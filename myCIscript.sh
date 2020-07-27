@@ -5,7 +5,6 @@ NAME="clock"
 IMAGE=$USERNAME/$NAME:$TAG
 DEPLOYMENT="clock-application"
 
-#git clone
 docker build -t $IMAGE .
 docker push $IMAGE
 kubectl apply -f $DEPLOYMENT.yaml
